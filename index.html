@@ -42,7 +42,7 @@
 
     <!-- Área de Conteúdo Principal -->
     <main class="flex-1 p-8 flex flex-col justify-between">
-        <div> <!-- Div para agrupar o conteúdo principal e empurrar o rodapé para baixo -->
+        <div> 
             <div id="anonymizer-module" class="content-module">
                 <h2 class="text-3xl font-bold mb-6 text-gray-200">Anonimizador de Texto</h2>
                 <div class="bg-gray-800 p-6 rounded-xl shadow-md">
@@ -73,21 +73,26 @@
                     </div>
                 </div>
 
-                <!-- NOVA NOTA DE USO -->
-                <p class="text-xs text-gray-500 mt-4 text-center">
-                    Nota: Para garantir a máxima proteção, a anonimização de nomes é intencionalmente rigorosa e pode incluir nomes de empresas ou a primeira palavra de uma frase. Sempre revise o resultado final.
-                </p>
+                <!-- NOVO DISCLAIMER ATUALIZADO -->
+                <div class="text-xs text-gray-500 mt-4 p-4 bg-gray-800 rounded-lg">
+                    <h4 class="font-bold text-gray-400 mb-2">Nota e Pontos de Atenção:</h4>
+                    <p class="mb-2">Esta ferramenta é um auxílio e a <strong>revisão do resultado final é essencial</strong>. Para garantir a máxima proteção, a anonimização é intencionalmente rigorosa, mas possui limitações conhecidas:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Nomes e Palavras Capitalizadas:</strong> A anonimização pode incluir nomes de empresas ou a primeira palavra de uma frase.</li>
+                        <li><strong>Conflito entre CPF e Celular:</strong> Números de celular com 11 dígitos sem formatação (ex: 11987654321) podem ser incorretamente anonimizados como um CPF.</li>
+                        <li><strong>Formatos não Reconhecidos:</strong> CPFs com espaços (ex: 111 222 333-44) não são detectados no momento.</li>
+                        <li><strong>Dados Não Tratados:</strong> A versão atual não anonimiza RGs, CNHs, endereços, CEPs ou dados bancários.</li>
+                    </ul>
+                </div>
 
             </div>
         </div>
 
-        <!-- NOVO RODAPÉ -->
         <footer class="text-center mt-8">
             <p class="text-sm text-gray-600">Todo o processo ocorre exclusivamente no seu navegador.</p>
         </footer>
     </main>
 
-    <!-- Carregamos o script principal como um módulo -->
     <script src="./src/js/main.js" type="module"></script>
 </body>
 </html>
