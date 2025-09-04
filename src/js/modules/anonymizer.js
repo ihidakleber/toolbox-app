@@ -58,13 +58,13 @@ function _anonymizeEmail(text) {
  */
 function _anonymizeNames(text) {
     const whitelist = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro", "Doutor", "Dra"];
-    const nameRegex = /\b[A-ZÀ-ÿ][a-zà-ÿ']+\b/g;
+    const nameRegex = /(?<=^|\s|["'(\-.,;¿¡])([A-ZÀ-ÿ][a-zà-ÿ']+)(?=$|\s|["')\-\].,;!?])/gu;
 
-    return text.replace(nameRegex, (match) => {
-        if (whitelist.includes(match)) {
-            return match;
+    return text.replace(nameRegex, (match, word) => {
+        if (whitelist.includes(word)) {
+            return word;
         }
-        return `${match.charAt(0)}*`;
+        return `${word.charAt(0)}*`;
     });
 }
 
@@ -86,7 +86,6 @@ function _anonymizePhone(text) {
         return match;
     });
 }
-
 
 /**
  * Função principal exportada. Executa todas as anonimizações.
